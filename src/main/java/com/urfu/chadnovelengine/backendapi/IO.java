@@ -11,7 +11,7 @@ public interface IO {
 
     int getAnswerIndex(String answer, String[] answers);
 
-    void sendMessage(Message message);
+    void sendServiceMessage(Message message);
 
-    void sendMessages(ArrayList<Message> messages);
+    void sendScriptMessages(ArrayList<Message> messages);
 }

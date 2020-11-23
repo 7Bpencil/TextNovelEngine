@@ -38,32 +38,36 @@ public class ConsoleFrontend implements IO {
     }
 
     @Override
-    public void sendMessage(Message message) {
-        switch (message.messageType) {
-            case TEXT -> printMessage(message.content);
-            case IMAGE, MUSIC, VIDEO, DOCUMENT -> logContent(message);
-        }
+    public void sendServiceMessage(Message message) {
+        sendMessage(message);
     }
 
     @Override
-    public void sendMessages(ArrayList<Message> messages) {
+    public void sendScriptMessages(ArrayList<Message> messages) {
         for (var message : messages) {
             sendMessage(message);
         }
     }
 
-    private void printMessage(String message) {
+    private void sendMessage(Message message) {
+        switch (message.messageType) {
+            case TEXT -> printString(message.content);
+            case IMAGE, MUSIC, VIDEO, DOCUMENT -> logContent(message);
+        }
+    }
+
+    private void printString(String message) {
         System.out.println(message);
     }
 
     private void printArrayWithIndices(String[] array) {
         for (var i = 0; i < array.length; i++) {
-            printMessage((i + 1) + " " + array[i]);
+            printString((i + 1) + " " + array[i]);
         }
     }
 
     private void logContent(Message message) {
-        printMessage("content path: " + message.content + ", type: " + message.messageType);
+        printString("content path: " + message.content + ", type: " + message.messageType);
     }
 
 }

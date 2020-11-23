@@ -16,8 +16,7 @@ public class Message {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return content.equals(message.content) &&
-                messageType == message.messageType;
+        return content.equals(message.content) && messageType == message.messageType;
     }
 
     @Override

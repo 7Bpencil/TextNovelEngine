@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TelegramIO implements IO {
     private ReplyKeyboardMarkup buttons;
-    private ArrayList<Message> messages;
+    private final ArrayList<Message> messages;
     private String currentUserAnswer;
 
     public TelegramIO() {
@@ -45,12 +45,12 @@ public class TelegramIO implements IO {
     }
 
     @Override
-    public void sendMessage(Message message) {
+    public void sendServiceMessage(Message message) {
         messages.add(message);
     }
 
     @Override
-    public void sendMessages(ArrayList<Message> messages) {
+    public void sendScriptMessages(ArrayList<Message> messages) {
         this.messages.addAll(messages);
     }
 

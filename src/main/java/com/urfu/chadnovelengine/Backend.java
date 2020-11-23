@@ -37,7 +37,7 @@ public class Backend {
                         scriptsNames,
                         io);
             } else {
-                io.sendMessage(new Message("Выберите сюжет:", MessageType.TEXT));
+                io.sendServiceMessage(new Message("Выберите сюжет:", MessageType.TEXT));
                 io.printExistingScriptsNames(scriptsNames);
             }
         }
@@ -45,7 +45,7 @@ public class Backend {
 
     private void checkContinuity(boolean doesContinue, String[] scriptsNames, IO io) {
         if (!doesContinue) {
-            io.sendMessage(new Message("Выберите новый сюжет:", MessageType.TEXT));
+            io.sendServiceMessage(new Message("Выберите новый сюжет:", MessageType.TEXT));
             io.printExistingScriptsNames(scriptsNames);
         }
     }

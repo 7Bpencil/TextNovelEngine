@@ -25,11 +25,11 @@ public class DialogStateMachine {
         var currentNode = script.getNode(user.getCurrentNodeIndex());
         var answers = currentNode.getAnswers();
 
-        io.sendMessages(currentNode.getMessages());
+        io.sendScriptMessages(currentNode.getMessages());
 
         if (answers == null) {
             user.clearCurrentScript();
-            io.sendMessage(new Message("Сюжет окончен", MessageType.TEXT));
+            io.sendServiceMessage(new Message("Сюжет окончен", MessageType.TEXT));
             return false;
         }
 
@@ -46,14 +46,14 @@ public class DialogStateMachine {
         switch (answer) {
             case "/exit":
                 user.clearCurrentScript();
-                io.sendMessage(new Message("Выход", MessageType.TEXT));
+                io.sendServiceMessage(new Message("Выход", MessageType.TEXT));
                 return;
 
             case "/repeat":
                 return;
 
             case "/help":
-                io.sendMessage(new Message(
+                io.sendServiceMessage(new Message(
                                 """
                                 Напишите 'start', чтобы начать диалог.
                                 Чтобы ответить, наберите число перед выбранным ответом.
@@ -65,7 +65,7 @@ public class DialogStateMachine {
 
         var answerIndex = io.getAnswerIndex(answer, answers);
         if (answerIndex == -1) {
-            io.sendMessage(currentNode.getWrongInputReaction());
+            io.sendServiceMessage(currentNode.getWrongInputReaction());
             return;
         }
 

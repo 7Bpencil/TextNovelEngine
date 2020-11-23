@@ -12,14 +12,18 @@ message text: GO
 message doc: zorich.txt
 wrong_input_message: WRONG INPUT
 answers:
-3: OKAY
+3: YEAH!
 
 node: 2
-message text: BYE
+message text: WHYYYYY???
 wrong_input_message: WRONG INPUT
 answers:
-3: GOODBYE
+4: BECAUSE!!!
 
 node: 3
-message text: THE END
+message text: GOOD END
 message music: anime.mp3
+
+node: 4
+message text: BAD END
+message music: doom.mp3
