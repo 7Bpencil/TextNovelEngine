@@ -19,7 +19,9 @@ public class Backend {
 
     public void updateUser(int userID, IO io) {
         var scriptsNames = scripts.getAllScriptsNames();
-        var user = users.isUserRegistered(userID) ? users.getUser(userID) : users.addUser(userID);
+        var user = users.isUserRegistered(userID)
+                ? users.getUser(userID)
+                : users.addUser(userID);
 
         if (user.hasRunningScript()) {
             checkContinuity(
@@ -28,7 +30,7 @@ public class Backend {
                     io);
         } else {
             var userAnswer = io.getUserAnswer();
-            if (MathTools.contains(userAnswer, scriptsNames)) {
+            if (BackendUtilities.contains(userAnswer, scriptsNames)) {
                 user.setNewScript(userAnswer);
                 checkContinuity(
                         dialogStateMachine.startDialog(user, scripts, io),

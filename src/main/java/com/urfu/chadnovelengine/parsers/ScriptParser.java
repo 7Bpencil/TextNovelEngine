@@ -51,7 +51,8 @@ public class ScriptParser {
                 ++i;
                 while (true) {
                     if (i == text.size() || text.get(++i).equals("")) {
-                        newNode.setWrongInputReaction(new Message(wrongInputReaction, MessageType.TEXT));
+                        newNode.setWrongInputReaction(
+                                new Message(wrongInputReaction, MessageType.TEXT));
                         newNode.setAnswers(answers.toArray(new String[0]));
                         newNode.setResponses(responses.stream().mapToInt(k->k).toArray());
                         nodes.add(newNode);
@@ -69,7 +70,8 @@ public class ScriptParser {
     }
 
     private static Message CreateMessage(
-            String message, String type, String scriptName, String contentDirectory) {
+            String message, String type,
+            String scriptName, String contentDirectory) {
         MessageType messageType;
         switch (type) {
             case "image" -> messageType = MessageType.IMAGE;

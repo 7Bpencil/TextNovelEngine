@@ -1,9 +1,9 @@
 package com.urfu.chadnovelengine;
 
-public class MathTools {
+public class BackendUtilities {
 
     public static boolean isValidAnswer(String answer, int answersAmount) {
-        if (isInteger(answer)) {
+        if (BackendUtilities.isInteger(answer)) {
             var answerIndex = Integer.parseInt(answer);
             return answerIndex > 0 && answerIndex < answersAmount + 1;
         }

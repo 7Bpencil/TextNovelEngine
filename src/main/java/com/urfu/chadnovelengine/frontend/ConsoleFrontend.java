@@ -1,7 +1,7 @@
 package com.urfu.chadnovelengine.frontend;
 
 import com.urfu.chadnovelengine.backendapi.IO;
-import com.urfu.chadnovelengine.MathTools;
+import com.urfu.chadnovelengine.BackendUtilities;
 import com.urfu.chadnovelengine.backendapi.Message;
 
 import java.io.InputStream;
@@ -32,7 +32,9 @@ public class ConsoleFrontend implements IO {
 
     @Override
     public int getAnswerIndex(String answer, String[] answers) {
-        return MathTools.isValidAnswer(answer, answers.length) ? Integer.parseInt(answer) - 1 : -1;
+        return BackendUtilities.isValidAnswer(answer, answers.length)
+                ? Integer.parseInt(answer) - 1
+                : -1;
     }
 
     @Override
