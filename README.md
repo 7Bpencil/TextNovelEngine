@@ -86,6 +86,14 @@ Terminating Node Format:
 
         So basically terminating node doesn't give answers and lacks wrong_input_message
 ```
+### Special Commands
+```
+Backend supports special commands:
+
+/help - show help
+/repeat - repeat last dialog node
+/exit - exit current script without saving a history
+```
 ### License
 ```
 MIT License
