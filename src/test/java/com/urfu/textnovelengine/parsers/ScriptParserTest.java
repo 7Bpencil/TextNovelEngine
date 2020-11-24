@@ -26,7 +26,6 @@ class ScriptParserTest {
 
         var firstExpectedMessages = new ArrayList<Message>();
         firstExpectedMessages.add(new Message("HELLO", MessageType.TEXT));
-        firstExpectedMessages.add(new Message("AAAAAAAAAAAAAAAAAAAAAAAA", MessageType.TEXT));
         firstExpectedMessages.add(new Message(contentPath + "alco.jpg", MessageType.IMAGE));
         firstExpectedMessages.add(new Message(contentPath + "cyber_dream.mp3", MessageType.MUSIC));
 
