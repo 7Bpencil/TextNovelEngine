@@ -1,16 +1,17 @@
 package com.urfu.textnovelengine;
 
+import com.urfu.chadnovelengine.UserManager;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class UserManagerTest {
-    UserManager userManager;
 
     @Test
     void testAddGetUserMechanic() {
-        userManager = new UserManager();
+        UserManager userManager = new UserManager();
+        Assertions.assertFalse(userManager.isUserRegistered(123));
         userManager.addUser(123);
-        assertNotNull(userManager.getUser(123));
+        Assertions.assertTrue(userManager.isUserRegistered(123));
+        Assertions.assertNotNull(userManager.getUser(123));
     }
 }
